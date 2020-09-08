@@ -85,7 +85,53 @@ namespace MarsQA_1.SpecflowTests.Steps
         {
             Console.WriteLine("timeType = " + timeType);
             Assert.AreEqual(timeType, profileInfo.getTimeTypeText());
+            Assert.AreEqual("Availability updated", profileInfo.getNsBoxText());
         }
+
+        //Hours part
+        [Given(@"Click hours edit icon")]
+        public void GivenClickHoursEditIcon()
+        {
+            profileInfo.ClickHoursWriteIcon();
+        }
+
+        [When(@"Choose the hours ""(.*)""")]
+        public void WhenChooseTheHours(string hours)
+        {
+            Console.WriteLine("timeType = " + hours);
+            profileInfo.ChooseHours(hours);
+        }
+
+        [Then(@"The Hours should be update as ""(.*)""")]
+        public void ThenTheHoursShouldBeUpdateAs(string hours)
+        {
+            Console.WriteLine("hours = " + hours);
+            Assert.AreEqual(hours, profileInfo.getHoursText());
+            Assert.AreEqual("Availability updated", profileInfo.getNsBoxText());
+        }
+
+        //Earn Target part
+        [Given(@"Click target edit icon")]
+        public void GivenClickTargetEditIcon()
+        {
+            profileInfo.ClickEarnTargetWriteIcon();
+        }
+
+        [When(@"Choose the target ""(.*)""")]
+        public void WhenChooseTheTarget(string target)
+        {
+            Console.WriteLine("timeType = " + target);
+            profileInfo.ChooseEarnTarget(target);
+        }
+
+        [Then(@"The Earn Target should be update as ""(.*)""")]
+        public void ThenTheEarnTargetShouldBeUpdateAs(string target)
+        {
+            Console.WriteLine("target = " + target);
+            Assert.AreEqual(target, profileInfo.getEarnTargetText());
+            Assert.AreEqual("Availability updated", profileInfo.getNsBoxText());
+        }
+
 
 
 

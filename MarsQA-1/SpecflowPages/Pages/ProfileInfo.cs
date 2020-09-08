@@ -86,8 +86,56 @@ namespace MarsQA_1.SpecflowPages.Pages
         {
             var timeTypeDisplay = By.XPath("//div[@class= 'ui list']/div[2]/div");
             //WebHelper.WaitVisible(Driver.driver, timeTypeDisplay, 5);
-            Thread.Sleep(2000);
+            Thread.Sleep(3000);
             return WebHelper.FindElement(Driver.driver, timeTypeDisplay).Text;
+        }
+
+        //Hours part
+        public void ClickHoursWriteIcon()
+        {
+            WebHelper.WaitClickable(Driver.driver, HoursWrtIcBy, 5);
+            HoursWrtIc.Click();
+        }
+        public void ChooseHours(String hours)
+        {
+            var hoursDropDown = By.XPath("//SELECT[@class= 'ui right labeled dropdown'][@name='availabiltyHour']");
+            WebHelper.WaitClickable(Driver.driver, hoursDropDown, 5);
+            WebHelper.FindElement(Driver.driver, hoursDropDown).SendKeys(hours);
+        }
+        public String getHoursText()
+        {
+            var hoursDisplay = By.XPath("//div[@class= 'ui list']/div[3]/div");
+            //WebHelper.WaitVisible(Driver.driver, timeTypeDisplay, 5);
+            Thread.Sleep(2000);
+            return WebHelper.FindElement(Driver.driver, hoursDisplay).Text;
+        }
+
+        //Earn Target part
+        public void ClickEarnTargetWriteIcon()
+        {
+            WebHelper.WaitClickable(Driver.driver, EarnTargetWrtIcBy, 5);
+            EarnTargetWrtIc.Click();
+        }
+        public void ChooseEarnTarget(String target)
+        {
+            var targetDropDown = By.XPath("//SELECT[@class= 'ui right labeled dropdown'][@name='availabiltyTarget']");
+            WebHelper.WaitClickable(Driver.driver, targetDropDown, 5);
+            WebHelper.FindElement(Driver.driver, targetDropDown).SendKeys(target);
+        }
+        public String getEarnTargetText()
+        {
+            var targetDisplay = By.XPath("//div[@class= 'ui list']/div[4]/div");
+            //WebHelper.WaitVisible(Driver.driver, timeTypeDisplay, 5);
+            Thread.Sleep(2000);
+            return WebHelper.FindElement(Driver.driver, targetDisplay).Text;
+        }
+        public String getNsBoxText()
+        {
+            var nsBoxDisplay = By.XPath("//div[@class='ns-box-inner']");
+            WebHelper.WaitVisible(Driver.driver, nsBoxDisplay, 2);
+            var text = WebHelper.FindElement(Driver.driver, nsBoxDisplay).Text;
+            Console.WriteLine("text = " + text);
+            return text;
         }
 
     }
