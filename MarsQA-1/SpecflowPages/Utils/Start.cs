@@ -20,7 +20,8 @@ namespace MarsQA_1.Utils
         {
             //launch the browser
             Initialize();
-            ExcelLibHelper.PopulateInCollection(@"C:\Users\pp\source\repos\Mars\onboarding.specflow-master\MarsQA-1\SpecflowTests\Data\Mars.xlsx", "Credentials");
+
+            ExcelLibHelper.PopulateInCollection(ConstantHelpers.getCodeDirectory() + @"\SpecflowTests\Data\Mars.xlsx", "Credentials");
             //call the SignIn class
             SignIn.SigninStep();
         }

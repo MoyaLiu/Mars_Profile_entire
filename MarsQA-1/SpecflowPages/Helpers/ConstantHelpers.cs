@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,12 +13,19 @@ namespace MarsQA_1.Helpers
         public static string Url = "http://localhost:5000";
        
         //ScreenshotPath
-        public static string ScreenshotPath = @"C:\Users\pp\source\repos\Mars\onboarding.specflow-master\MarsQA-1\TestReports\Screenshots\";
+        public static string ScreenshotPath = getCodeDirectory() + @"\TestReports\Screenshots\";
 
         //ExtentReportsPath
-        public static string ReportsPath = @"C:\Users\pp\source\repos\Mars\onboarding.specflow-master\MarsQA-1\TestReports\Report.html";
+        public static string ReportsPath = getCodeDirectory() + @"\TestReports\Report.html";
 
         //ReportXML Path
-        public static string ReportXMLPath = @"C:\Users\pp\source\repos\Mars\onboarding.specflow-master\MarsQA-1\TestReports\XML";
+        public static string ReportXMLPath = getCodeDirectory() + @"\TestReports\XML";
+
+        public static string getCodeDirectory()
+        {
+            var filepath = System.AppDomain.CurrentDomain.BaseDirectory;
+            Console.WriteLine("filepath = " + filepath + @"..\..\");
+            return filepath + @"..\..\";
+        }
     }
 }
