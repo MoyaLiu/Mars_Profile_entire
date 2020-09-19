@@ -24,7 +24,6 @@ namespace MarsQA_1.Helpers
         public static string getCodeDirectory()
         {
             var filepath = System.AppDomain.CurrentDomain.BaseDirectory;
-            Console.WriteLine("filepath = " + filepath + @"..\..\");
             return filepath + @"..\..\";
         }
     }

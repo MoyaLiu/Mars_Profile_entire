@@ -20,22 +20,22 @@ namespace MarsQA_1.Feature
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("ProfileInfo")]
-    public partial class ProfileInfoFeature
+    [NUnit.Framework.DescriptionAttribute("ProfileAttributes")]
+    public partial class ProfileAttributesFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "ProfileInfo.feature"
+#line 1 "ProfileAttributes.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Feature", "ProfileInfo", "\tThe functionalities in profile page left pad.", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Feature", "ProfileAttributes", "        The functionalities of Languages/Skills/Education/Certifications", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,22 +74,27 @@ namespace MarsQA_1.Feature
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify the user is able to edit the name")]
-        [NUnit.Framework.CategoryAttribute("profile_name")]
-        [NUnit.Framework.TestCaseAttribute("Moyaa", "Lii", null)]
-        public virtual void VerifyTheUserIsAbleToEditTheName(string firstName, string lastName, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Verify the user is able to add new languages")]
+        [NUnit.Framework.CategoryAttribute("profile_language")]
+        [NUnit.Framework.TestCaseAttribute("English", "Basic", "has been added to your languages", null)]
+        [NUnit.Framework.TestCaseAttribute("", "Basic", "Please enter language and level", null)]
+        [NUnit.Framework.TestCaseAttribute("Chinese", "", "Please enter language and level", null)]
+        [NUnit.Framework.TestCaseAttribute("English", "Basic", "This language is already exist in your language list.", null)]
+        [NUnit.Framework.TestCaseAttribute("English", "Fluent", "Duplicated data", null)]
+        public virtual void VerifyTheUserIsAbleToAddNewLanguages(string language, string level, string notification, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "profile_name"};
+                    "profile_language"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("First Name", firstName);
-            argumentsOfScenario.Add("Last Name", lastName);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to edit the name", null, tagsOfScenario, argumentsOfScenario);
+            argumentsOfScenario.Add("Language", language);
+            argumentsOfScenario.Add("Level", level);
+            argumentsOfScenario.Add("Notification", notification);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to add new languages", null, tagsOfScenario, argumentsOfScenario);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -111,39 +116,36 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 6
- testRunner.Given("Click Name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("Click Languages Tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 7
- testRunner.And(string.Format("Enter values in \"{0}\" and \"{1}\"", firstName, lastName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Click Add New button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 8
- testRunner.When("Click Save", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And(string.Format("Enter the \"{0}\" and \"{1}\"", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 9
- testRunner.Then(string.Format("The name is display as \"{0}\"\"{1}\"", firstName, lastName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("Click Add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 11
+ testRunner.Then(string.Format("The alert dialog \"{0}\" should be displayed", notification), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify the user is able to edit the availability time type")]
-        [NUnit.Framework.CategoryAttribute("profile_timetype")]
-        [NUnit.Framework.TestCaseAttribute("Part Time", null)]
-        [NUnit.Framework.TestCaseAttribute("Full Time", null)]
-        public virtual void VerifyTheUserIsAbleToEditTheAvailabilityTimeType(string timeType, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Verify the user is able to edit the language item")]
+        [NUnit.Framework.TestCaseAttribute("Chinese", "Fluent", "has been updated to your languages", null)]
+        public virtual void VerifyTheUserIsAbleToEditTheLanguageItem(string language, string level, string notification, string[] exampleTags)
         {
-            string[] @__tags = new string[] {
-                    "profile_timetype"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("Time Type", timeType);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to edit the availability time type", null, tagsOfScenario, argumentsOfScenario);
-#line 16
+            argumentsOfScenario.Add("language", language);
+            argumentsOfScenario.Add("level", level);
+            argumentsOfScenario.Add("notification", notification);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to edit the language item", null, tagsOfScenario, argumentsOfScenario);
+#line 21
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -163,77 +165,33 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 17
- testRunner.Given("Click availability edit icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 22
+ testRunner.Given("Click the language item edit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 18
- testRunner.When(string.Format("Choose the availability \"{0}\"", timeType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 23
+ testRunner.And(string.Format("Enter the \"{0}\" and \"{1}\"", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 19
- testRunner.Then(string.Format("The availability should be update as \"{0}\"", timeType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 24
+ testRunner.When("Click update", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify the user is able to cancel on time type")]
-        public virtual void VerifyTheUserIsAbleToCancelOnTimeType()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to cancel on time type", null, tagsOfScenario, argumentsOfScenario);
 #line 25
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 26
- testRunner.Given("Click availability edit icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 27
- testRunner.When("Click time type cancel icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 28
- testRunner.Then("The timetype should not change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("The alert dialog \"{0}\" should be displayed", notification), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify the user is able to edit the availability hours")]
-        [NUnit.Framework.CategoryAttribute("profile_hours")]
-        [NUnit.Framework.TestCaseAttribute("Less than 30hours a week", null)]
-        [NUnit.Framework.TestCaseAttribute("More than 30hours a week", null)]
-        [NUnit.Framework.TestCaseAttribute("As needed", null)]
-        public virtual void VerifyTheUserIsAbleToEditTheAvailabilityHours(string hours, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Verify the user is able to cancel edit the language item")]
+        [NUnit.Framework.TestCaseAttribute("Chinese", "Fluent", "has been updated to your languages", null)]
+        public virtual void VerifyTheUserIsAbleToCancelEditTheLanguageItem(string language, string level, string notification, string[] exampleTags)
         {
-            string[] @__tags = new string[] {
-                    "profile_hours"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("Hours", hours);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to edit the availability hours", null, tagsOfScenario, argumentsOfScenario);
+            argumentsOfScenario.Add("language", language);
+            argumentsOfScenario.Add("level", level);
+            argumentsOfScenario.Add("notification", notification);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to cancel edit the language item", null, tagsOfScenario, argumentsOfScenario);
 #line 31
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -255,25 +213,30 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 32
- testRunner.Given("Click hours edit icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("Click the language item edit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 33
- testRunner.When(string.Format("Choose the hours \"{0}\"", hours), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And(string.Format("Enter the \"{0}\" and \"{1}\"", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 34
- testRunner.Then(string.Format("The Hours should be update as \"{0}\"", hours), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("Click cancel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 35
+ testRunner.Then("The alert dialog should not be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify the user is able to cancel on hours")]
-        public virtual void VerifyTheUserIsAbleToCancelOnHours()
+        [NUnit.Framework.DescriptionAttribute("Verify the user is able to delete the language item")]
+        [NUnit.Framework.TestCaseAttribute("has been deleted from your languages", null)]
+        public virtual void VerifyTheUserIsAbleToDeleteTheLanguageItem(string notification, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to cancel on hours", null, tagsOfScenario, argumentsOfScenario);
+            argumentsOfScenario.Add("notification", notification);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to delete the language item", null, tagsOfScenario, argumentsOfScenario);
 #line 41
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -295,37 +258,35 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 42
- testRunner.Given("Click hours edit icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("Click the language item delete button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 43
- testRunner.When("Click hours cancel icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 44
- testRunner.Then("The hours should not change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("The alert dialog \"{0}\" should be displayed", notification), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify the user is able to edit the availability earn target")]
-        [NUnit.Framework.CategoryAttribute("profile_target")]
-        [NUnit.Framework.TestCaseAttribute("Less than $500 per month", null)]
-        [NUnit.Framework.TestCaseAttribute("Between $500 and $1000 per month", null)]
-        [NUnit.Framework.TestCaseAttribute("More than $1000 per month", null)]
-        public virtual void VerifyTheUserIsAbleToEditTheAvailabilityEarnTarget(string earnTarget, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Verify the user is able to add new skills")]
+        [NUnit.Framework.CategoryAttribute("profile_skills")]
+        [NUnit.Framework.TestCaseAttribute("Selenium", "Beginner", null)]
+        [NUnit.Framework.TestCaseAttribute("Java", "Intermediate", null)]
+        [NUnit.Framework.TestCaseAttribute("C#", "Expert", null)]
+        public virtual void VerifyTheUserIsAbleToAddNewSkills(string skill, string level, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "profile_target"};
+                    "profile_skills"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("Earn Target", earnTarget);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to edit the availability earn target", null, tagsOfScenario, argumentsOfScenario);
-#line 47
+            argumentsOfScenario.Add("Skill", skill);
+            argumentsOfScenario.Add("Level", level);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to add new skills", null, tagsOfScenario, argumentsOfScenario);
+#line 50
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -345,27 +306,43 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 48
- testRunner.Given("Click target edit icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 51
+ testRunner.Given("Click Add New button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 49
- testRunner.When(string.Format("Choose the target \"{0}\"", earnTarget), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 52
+ testRunner.And(string.Format("Enter the \"{0}\" and \"{1}\"", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 50
- testRunner.Then(string.Format("The Earn Target should be update as \"{0}\"", earnTarget), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 53
+ testRunner.When("Click Add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 54
+ testRunner.Then(string.Format("The \"<skills>\" and \"{0}\" should be displayed", level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify the user is able to cancel on earn target")]
-        public virtual void VerifyTheUserIsAbleToCancelOnEarnTarget()
+        [NUnit.Framework.DescriptionAttribute("Verify the user is able to add new education")]
+        [NUnit.Framework.CategoryAttribute("profile_Education")]
+        [NUnit.Framework.TestCaseAttribute("Sdf", "Canada", "B.Tech", "98", "2018", null)]
+        public virtual void VerifyTheUserIsAbleToAddNewEducation(string university, string country, string title, string degree, string graduationYear, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] @__tags = new string[] {
+                    "profile_Education"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to cancel on earn target", null, tagsOfScenario, argumentsOfScenario);
-#line 57
+            argumentsOfScenario.Add("University", university);
+            argumentsOfScenario.Add("Country", country);
+            argumentsOfScenario.Add("Title", title);
+            argumentsOfScenario.Add("Degree", degree);
+            argumentsOfScenario.Add("Graduation Year", graduationYear);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to add new education", null, tagsOfScenario, argumentsOfScenario);
+#line 63
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -385,14 +362,71 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 58
- testRunner.Given("Click target edit icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 64
+ testRunner.Given("Click Add New button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 59
- testRunner.When("Click target cancel icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 65
+ testRunner.And(string.Format("Enter the \"{0}\", \"{1}\", \"{2}\", \"{3}\" and \"{4}\"", university, country, title, degree, graduationYear), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 60
- testRunner.Then("The target should not change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 66
+ testRunner.When("Click Add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 67
+ testRunner.Then(string.Format("The \"{0}\", \"{1}\", \"{2}\", \"{3}\" and \"{4}\" should be displayed", university, country, title, degree, graduationYear), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Verify the user is able to add new certification")]
+        [NUnit.Framework.CategoryAttribute("profile_Certifications")]
+        [NUnit.Framework.TestCaseAttribute("Sdf", "Adobe", "2017", null)]
+        public virtual void VerifyTheUserIsAbleToAddNewCertification(string certificate, string from, string year, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "profile_Certifications"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Certificate", certificate);
+            argumentsOfScenario.Add("From", from);
+            argumentsOfScenario.Add("Year", year);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to add new certification", null, tagsOfScenario, argumentsOfScenario);
+#line 74
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 75
+ testRunner.Given("Click Add New button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 76
+ testRunner.And(string.Format("Enter the \"{0}\", \"{1}\" and \"{2}\"", certificate, from, year), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 77
+ testRunner.When("Click Add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 78
+ testRunner.Then(string.Format("The {0}\", \"{1}\" and \"{2}\" should be displayed", certificate, from, year), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

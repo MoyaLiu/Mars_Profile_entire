@@ -17,22 +17,24 @@ namespace MarsQA_1.SpecflowPages.Helpers
                 var wait = new WebDriverWait(webDriver, new TimeSpan(0, 0, seconds));
                 wait.Until(ExpectedConditions.ElementToBeClickable(by));
             }
-            catch (TimeoutException ex)
+            catch (WebDriverTimeoutException ex)
             {
                 Console.WriteLine("The element is not clickable, time out, " + ex.Message);
             }
         }
 
-        public static void WaitVisible(IWebDriver webDriver, By by, int seconds)
+        public static bool WaitVisible(IWebDriver webDriver, By by, int seconds)
         {
             try
             {
                 var wait = new WebDriverWait(webDriver, new TimeSpan(0, 0, seconds));
                 wait.Until(ExpectedConditions.ElementIsVisible(by));
+                return true;
             }
-            catch (TimeoutException ex)
+            catch (WebDriverTimeoutException ex)
             {
-                Console.WriteLine("The element is not clickable, time out, " + ex.Message);
+                Console.WriteLine("The element is not visible, time out, " + ex.Message);
+                return false;
             }
         }
 
@@ -58,7 +60,7 @@ namespace MarsQA_1.SpecflowPages.Helpers
                 wait.Until(ExpectedConditions.ElementIsVisible(by));
                 return driver.Url;
             }
-            catch (TimeoutException ex)
+            catch (WebDriverTimeoutException ex)
             {
                 Console.WriteLine("Get current page url " + seconds + "seconds time out." + ex.Message);
                 return null;

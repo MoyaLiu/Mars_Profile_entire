@@ -1,5 +1,6 @@
 ﻿using MarsQA_1.Helpers;
 using MarsQA_1.SpecflowPages.Helpers;
+using Microsoft.AspNetCore.Routing;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -33,7 +34,11 @@ namespace MarsQA_1.SpecflowPages.Pages
         private IWebElement HoursRmIc => WebHelper.FindElement(Driver.driver, HoursRmIcBy);
         private IWebElement EarnTargetWrtIc => WebHelper.FindElement(Driver.driver, EarnTargetWrtIcBy);
         private IWebElement EarnTargetRmIc => WebHelper.FindElement(Driver.driver, EarnTargetRmIcBy);
-        ////*[@id="account-profile-section"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[2]/div/span/select
+
+        public string preTimeType = null;
+        public string preHours = null;
+        public string preTarget = null;
+        public string successfulText = "Availability updated";
 
         public void ClickName()
         {
@@ -74,6 +79,10 @@ namespace MarsQA_1.SpecflowPages.Pages
         public void ClickTimeTypeWriteIcon()
         {
             WebHelper.WaitClickable(Driver.driver, TimeTypeWrtIcBy, 5);
+
+            //get the previous timetype to assert
+            preTimeType = getTimeTypeText();
+
             TimeTypeWrtIc.Click();
         }
         public void ChooseTimeType(String timeType)
@@ -81,6 +90,11 @@ namespace MarsQA_1.SpecflowPages.Pages
             var timeTypeDropDown = By.XPath("//SELECT[@class= 'ui right labeled dropdown'][@name='availabiltyType']");
             WebHelper.WaitClickable(Driver.driver, timeTypeDropDown, 5);
             WebHelper.FindElement(Driver.driver, timeTypeDropDown).SendKeys(timeType);
+        }
+        public void ClickTimeTypeRmIcon()
+        {
+            WebHelper.WaitClickable(Driver.driver, TimeTypeRmIcBy, 5);
+            TimeTypeRmIc.Click();
         }
         public String getTimeTypeText()
         {
@@ -94,6 +108,7 @@ namespace MarsQA_1.SpecflowPages.Pages
         public void ClickHoursWriteIcon()
         {
             WebHelper.WaitClickable(Driver.driver, HoursWrtIcBy, 5);
+            preHours = getHoursText();
             HoursWrtIc.Click();
         }
         public void ChooseHours(String hours)
@@ -101,6 +116,11 @@ namespace MarsQA_1.SpecflowPages.Pages
             var hoursDropDown = By.XPath("//SELECT[@class= 'ui right labeled dropdown'][@name='availabiltyHour']");
             WebHelper.WaitClickable(Driver.driver, hoursDropDown, 5);
             WebHelper.FindElement(Driver.driver, hoursDropDown).SendKeys(hours);
+        }
+        public void ClickHoursRmIcon()
+        {
+            WebHelper.WaitClickable(Driver.driver, HoursRmIcBy, 5);
+            HoursRmIc.Click();
         }
         public String getHoursText()
         {
@@ -114,6 +134,7 @@ namespace MarsQA_1.SpecflowPages.Pages
         public void ClickEarnTargetWriteIcon()
         {
             WebHelper.WaitClickable(Driver.driver, EarnTargetWrtIcBy, 5);
+            preTarget = getEarnTargetText();
             EarnTargetWrtIc.Click();
         }
         public void ChooseEarnTarget(String target)
@@ -122,6 +143,11 @@ namespace MarsQA_1.SpecflowPages.Pages
             WebHelper.WaitClickable(Driver.driver, targetDropDown, 5);
             WebHelper.FindElement(Driver.driver, targetDropDown).SendKeys(target);
         }
+        public void ClickEarnTargetRmIcon()
+        {
+            WebHelper.WaitClickable(Driver.driver, EarnTargetRmIcBy, 5);
+            EarnTargetRmIc.Click();
+        }
         public String getEarnTargetText()
         {
             var targetDisplay = By.XPath("//div[@class= 'ui list']/div[4]/div");
@@ -129,11 +155,11 @@ namespace MarsQA_1.SpecflowPages.Pages
             Thread.Sleep(2000);
             return WebHelper.FindElement(Driver.driver, targetDisplay).Text;
         }
-        public String getNsBoxText()
+        public string getAlertDialogText()
         {
-            var nsBoxDisplay = By.XPath("//div[@class='ns-box-inner']");
-            WebHelper.WaitVisible(Driver.driver, nsBoxDisplay, 2);
-            var text = WebHelper.FindElement(Driver.driver, nsBoxDisplay).Text;
+            var alertDialogDisplay = By.XPath("//div[@class='ns-box-inner']");
+            WebHelper.WaitVisible(Driver.driver, alertDialogDisplay, 2);
+            var text = WebHelper.FindElement(Driver.driver, alertDialogDisplay).Text;
             Console.WriteLine("text = " + text);
             return text;
         }

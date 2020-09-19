@@ -451,15 +451,21 @@
     <Compile Include="SpecflowPages\Helpers\Driver.cs" />
     <Compile Include="SpecflowPages\Helpers\ExcelLibHelper.cs" />
     <Compile Include="SpecflowPages\Helpers\WebHelper.cs" />
+    <Compile Include="SpecflowPages\Pages\ProfileAttributes.cs" />
+    <Compile Include="SpecflowPages\Pages\ProfileDescription.cs" />
     <Compile Include="SpecflowPages\Pages\ProfileInfo.cs" />
     <Compile Include="SpecflowPages\Pages\SignIn.cs" />
     <Compile Include="SpecflowPages\Utils\Start.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpecflowTests\Steps\ProfileAttributes_Steps.cs" />
+    <Compile Include="SpecflowTests\Steps\ProfileDescription_Steps.cs" />
     <Compile Include="SpecflowTests\Steps\ProfileInfo_Steps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Feature\Login.feature" />
+    <None Include="Feature\ProfileAttributes.feature" />
+    <None Include="Feature\ProfileDescription.feature" />
     <None Include="Feature\ProfileInfo.feature" />
     <None Include="SpecflowTests\Data\Data.xlsx" />
     <None Include="packages.config" />

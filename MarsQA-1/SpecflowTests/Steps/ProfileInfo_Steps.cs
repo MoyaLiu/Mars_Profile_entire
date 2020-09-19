@@ -25,15 +25,6 @@ namespace MarsQA_1.SpecflowTests.Steps
             profileInfo.ClickName();
         }
 
-        //[Given(@"Enter values in First Name and Last Name")]
-        //public void GivenEnterValuesInFirstNameAndLastName(Table table)
-        //{
-        //    var firstName = table.Rows[0][0];
-        //    var lastName = table.Rows[0][1];
-        //    profileInfo.EditName(firstName, lastName);
-        //    Console.WriteLine("Table 1 = " + firstName);
-        //    Console.WriteLine("Table 2 = " + lastName);
-        //}
         [Given(@"Enter values in ""(.*)"" and ""(.*)""")]
         public void GivenEnterValuesInAnd(string firstName, string lastName)
         {
@@ -42,18 +33,6 @@ namespace MarsQA_1.SpecflowTests.Steps
             profileInfo.EditName(firstName, lastName);
         }
 
-        //[Given(@"Enter values in ""(.*)"" and ""(.*)""")]
-        //public void GivenEnterValuesInAnd(string p0, string p1, Table table)
-        //{
-        //    Console.WriteLine("po = " + p0);
-        //    Console.WriteLine("P1 = " + p1);
-        //}
-
-        //[When(@"Click ""(.*)""")]
-        //public void WhenClick(string p0)
-        //{
-        //    profileInfo.SaveName();
-        //}
         [When(@"Click Save")]
         public void WhenClickSave()
         {
@@ -85,7 +64,19 @@ namespace MarsQA_1.SpecflowTests.Steps
         {
             Console.WriteLine("timeType = " + timeType);
             Assert.AreEqual(timeType, profileInfo.getTimeTypeText());
-            Assert.AreEqual("Availability updated", profileInfo.getNsBoxText());
+            Assert.AreEqual(profileInfo.successfulText, profileInfo.getAlertDialogText());
+        }
+
+        [When(@"Click time type cancel icon")]
+        public void WhenClickTimeTypeCancelIcon()
+        {
+            profileInfo.ClickTimeTypeRmIcon();
+        }
+        [Then(@"The timetype should not change")]
+        public void ThenTheTimetypeShouldNotChange()
+        {
+            Console.WriteLine("preTimeType = " + profileInfo.preTimeType);
+            Assert.AreEqual(profileInfo.preTimeType, profileInfo.getTimeTypeText());
         }
 
         //Hours part
@@ -107,7 +98,19 @@ namespace MarsQA_1.SpecflowTests.Steps
         {
             Console.WriteLine("hours = " + hours);
             Assert.AreEqual(hours, profileInfo.getHoursText());
-            Assert.AreEqual("Availability updated", profileInfo.getNsBoxText());
+            Assert.AreEqual(profileInfo.successfulText, profileInfo.getAlertDialogText());
+        }
+
+        [When(@"Click hours cancel icon")]
+        public void WhenClickHoursCancelIcon()
+        {
+            profileInfo.ClickHoursRmIcon();
+        }
+        [Then(@"The hours should not change")]
+        public void ThenTheHoursShouldNotChange()
+        {
+            Console.WriteLine("preHours = " + profileInfo.preHours);
+            Assert.AreEqual(profileInfo.preHours, profileInfo.getHoursText());
         }
 
         //Earn Target part
@@ -129,8 +132,21 @@ namespace MarsQA_1.SpecflowTests.Steps
         {
             Console.WriteLine("target = " + target);
             Assert.AreEqual(target, profileInfo.getEarnTargetText());
-            Assert.AreEqual("Availability updated", profileInfo.getNsBoxText());
+            Assert.AreEqual(profileInfo.successfulText, profileInfo.getAlertDialogText());
         }
+
+        [When(@"Click target cancel icon")]
+        public void WhenClickTargetCancelIcon()
+        {
+            profileInfo.ClickEarnTargetRmIcon();
+        }
+
+        [Then(@"The target should not change")]
+        public void ThenTheTargetShouldNotChange()
+        {
+            Assert.AreEqual(profileInfo.preTarget, profileInfo.getEarnTargetText());
+        }
+
 
 
 
