@@ -64,9 +64,5 @@ namespace MarsQA_1.SpecflowTests.Steps
         {
             Assert.AreEqual(display, profileDescription.getAlertDialogText());
         }
-
-
-
-
     }
 }

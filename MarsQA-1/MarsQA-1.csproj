@@ -451,18 +451,26 @@
     <Compile Include="SpecflowPages\Helpers\Driver.cs" />
     <Compile Include="SpecflowPages\Helpers\ExcelLibHelper.cs" />
     <Compile Include="SpecflowPages\Helpers\WebHelper.cs" />
+    <Compile Include="SpecflowPages\Pages\ProfileInfos\EarnTarget.cs" />
+    <Compile Include="SpecflowPages\Pages\ProfileInfos\Hours.cs" />
+    <Compile Include="SpecflowPages\Pages\ProfileInfos\Name.cs" />
+    <Compile Include="SpecflowPages\Pages\ProfileInfos\TimeType.cs" />
+    <Compile Include="SpecflowPages\Pages\ProfileCommon.cs" />
     <Compile Include="SpecflowPages\Pages\ProfileDetails\Certification.cs" />
     <Compile Include="SpecflowPages\Pages\ProfileDetails\Education.cs" />
     <Compile Include="SpecflowPages\Pages\ProfileDetails\Languages.cs" />
     <Compile Include="SpecflowPages\Pages\ProfileDescription.cs" />
     <Compile Include="SpecflowPages\Pages\ProfileDetails\Skills.cs" />
-    <Compile Include="SpecflowPages\Pages\ProfileInfo.cs" />
+    <Compile Include="SpecflowPages\Pages\ProfileInfos\ProfileInfo.cs" />
     <Compile Include="SpecflowPages\Pages\SignIn.cs" />
     <Compile Include="SpecflowPages\Utils\Start.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecflowTests\Steps\ProfileDetails\Languages_Steps.cs" />
     <Compile Include="SpecflowTests\Steps\ProfileDescription_Steps.cs" />
-    <Compile Include="SpecflowTests\Steps\ProfileInfo_Steps.cs" />
+    <Compile Include="SpecflowTests\Steps\ProfileInfos\EarnTarget_Steps.cs" />
+    <Compile Include="SpecflowTests\Steps\ProfileInfos\Hours_Steps.cs" />
+    <Compile Include="SpecflowTests\Steps\ProfileInfos\Name_Steps.cs" />
+    <Compile Include="SpecflowTests\Steps\ProfileInfos\TimeType_Steps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -472,7 +480,10 @@
     <None Include="Feature\ProfileDetails\Languages.feature" />
     <None Include="Feature\ProfileDescription.feature" />
     <None Include="Feature\ProfileDetails\Skills.feature" />
-    <None Include="Feature\ProfileInfo.feature" />
+    <None Include="Feature\ProfileInfos\Hours.feature" />
+    <None Include="Feature\ProfileInfos\Name.feature" />
+    <None Include="Feature\ProfileInfos\EarnTarget.feature" />
+    <None Include="Feature\ProfileInfos\TimeType.feature" />
     <None Include="SpecflowTests\Data\Data.xlsx" />
     <None Include="packages.config" />
     <None Include="SpecflowTests\Data\Mars.xlsx" />
