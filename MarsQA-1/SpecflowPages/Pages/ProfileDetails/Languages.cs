@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarsQA_1.SpecflowPages.Pages
+namespace MarsQA_1.SpecflowPages.Pages.ProfileDetails
 {
-    class ProfileAttributes
+    class Languages
     {
         private By LanguagesTitleBy = By.XPath("//a[contains(@class,'item')][@data-tab='first']");
 
@@ -18,56 +18,23 @@ namespace MarsQA_1.SpecflowPages.Pages
         private By LanguageWrtIcBy = By.XPath("//div[@data-tab='first']/div/div[2]/div/table/tbody/tr/td[3]/span[1]/i");//tbody[i] is row number
         private By LanguageRmIcBy = By.XPath("//div[@data-tab='first']/div/div[2]/div/table/tbody/tr/td[3]/span[2]/i");//td[i] is column number
         private By LanguageUpdateBtnBy = By.XPath("//div[@data-tab='first']/div/div[2]/div/table/tbody[1]/tr/td/div/span/input[@value='Update']");////tbody[i] is row number
-        private By LanguageCancelBtnBy = By.XPath("//div[@data-tab='first']/div/div[2]/div/table/tbody[1]/tr/td/div/span/input[@value='Cancel']");
-
-        private By SkillsTitleBy = By.XPath("//a[contains(@class,'item')][@data-tab='second']");
-        private By SkillAddEditBy = By.XPath("//input[@placeholder='Add Skill']");
-        private By SkillLevelDropdownBy = By.XPath("//select[@class ='ui fluid dropdown'][@name='level']");
-        private By SkillWrtIcBy = By.XPath("//div[@data-tab='second']/div/div[2]/div/table/tbody/tr/td[3]/span[1]/i");
-        private By SkillRmIcBy = By.XPath("//div[@data-tab='second']/div/div[2]/div/table/tbody/tr/td[3]/span[2]/i");
-        private By SkillUpdateBtnBy = By.XPath("//div[@data-tab='second']/div/div[2]/div/table/tbody[1]/tr/td/div/span/input[@value='Update']");////tbody[i] is row number
-        private By SkillCancelBtnBy = By.XPath("//div[@data-tab='second']/div/div[2]/div/table/tbody[1]/tr/td/div/span/input[@value='Cancel']");
-
-        private By EducationTitleBy = By.XPath("//a[contains(@class,'item')][@data-tab='third']");
-        private By EducationCollegeAddEditBy = By.XPath("//input[@placeholder='College/University Name']");
-        private By EducationDegreeAddEditBy = By.XPath("//input[@placeholder='Degree']");
-        private By EducationCountryDropdownBy = By.XPath("//select[@class ='ui dropdown'][@name='country']");
-        private By EducationTitleDropdownBy = By.XPath("//select[@class ='ui dropdown'][@name='title']");
-        private By EducationYearDropdownBy = By.XPath("//select[@class ='ui dropdown'][@name='yearOfGraduation']");
-        private By EducationWrtIcBy = By.XPath("//div[@data-tab='third']/div/div[2]/div/table/tbody/tr/td[6]/span[1]/i");
-        private By EducationRmIcBy = By.XPath("//div[@data-tab='third']/div/div[2]/div/table/tbody/tr/td[6]/span[2]/i");
-        private By EducationUpdateBtnBy = By.XPath("//div[@data-tab='third']/div/div[2]/div/table/tbody[1]/tr/td/div[3]/input[@value='Update']");////tbody[i] is row number
-        private By EducationCancelBtnBy = By.XPath("//div[@data-tab='third']/div/div[2]/div/table/tbody[1]/tr/td/div[3]/input[@value='Cancel']");
-
-        private By CertificationsTitleBy = By.XPath("//a[contains(@class,'item')][@data-tab='fourth']");
-        private By CertificateCerAddEditBy = By.XPath("//input[@placeholder='Certificate or Award']");
-        private By CertificationFromEditBy = By.XPath("//input[@placeholder='Certified From (e.g. Adobe)']");
-        private By CertificationYearDropdownBy = By.XPath("//select[@class ='ui dropdown'][@name='certificationYear']");
-        private By CertificationWrtIcBy = By.XPath("//div[@data-tab='fourth']/div/div[2]/div/table/tbody/tr/td[4]/span[1]/i");
-        private By CertificationRmIcBy = By.XPath("//div[@data-tab='fourth']/div/div[2]/div/table/tbody/tr/td[4]/span[2]/i");
-        private By CertificationUpdateBtnBy = By.XPath("//div[@data-tab='fourth']/div/div[2]/div/table/tbody[1]/tr/td/div/span//input[@value='Update']");////tbody[i] is row number
-        private By CertificationCancelBtnBy = By.XPath("//div[@data-tab='fourth']/div/div[2]/div/table/tbody[1]/tr/td/div/span//input[@value='Cancel']");
-
-        private By AddNewBtnBy = By.XPath("//div[@class='ui teal button ']");
-        private By AddNewSkillsBtnBy = By.XPath("//div[@class='ui teal button']");
-
+        private By LanguageCancelUpdateBtnBy = By.XPath("//div[@data-tab='first']/div/div[2]/div/table/tbody[1]/tr/td/div/span/input[@value='Cancel']");
         private By AddLanguageBtnBy = By.XPath("//input[@class='ui teal button'][@value='Add']");
-        private By AddBtnBy = By.XPath("//input[@class='ui teal button '][@value='Add']");
-        private By CancelButtonBy = By.XPath("//input[@class='ui button'][@value='Cancel']");
+        private By CancelAddBtnBy = By.XPath("//input[@class='ui button'][@value='Cancel']");
+        private By AddNewBtnBy = By.XPath("//div[@class='ui teal button ']");
 
         private IWebElement eLanguages => WebHelper.FindElement(Driver.driver, LanguagesTitleBy);
         private IWebElement eLanguageAddEdit => WebHelper.FindElement(Driver.driver, LanguageAddEditBy);
         private IWebElement eLanguageLevelDropdown => WebHelper.FindElement(Driver.driver, LanguageLevelDropdownBy);
         private IWebElement eAddLanguageBtn => WebHelper.FindElement(Driver.driver, AddLanguageBtnBy);
+        private IWebElement eCancelAddBtn => WebHelper.FindElement(Driver.driver, CancelAddBtnBy);
         private IWebElement eLanguageWrtIc => WebHelper.FindElement(Driver.driver, LanguageWrtIcBy);
         private IWebElement eLanguageRmIc => WebHelper.FindElement(Driver.driver, LanguageRmIcBy);
         private IWebElement eLanguageUpdateBtn => WebHelper.FindElement(Driver.driver, LanguageUpdateBtnBy);
-        private IWebElement eLanguageCancelBtn => WebHelper.FindElement(Driver.driver, LanguageCancelBtnBy);
-        private IWebElement eSkills => WebHelper.FindElement(Driver.driver, SkillsTitleBy);
-        private IWebElement eEducation => WebHelper.FindElement(Driver.driver, EducationTitleBy);
-        private IWebElement eCertifications => WebHelper.FindElement(Driver.driver, CertificationsTitleBy);
+        private IWebElement eLanguageCancelUpdateBtn => WebHelper.FindElement(Driver.driver, LanguageCancelUpdateBtnBy);
+
+
         private IWebElement eAddNewButton => WebHelper.FindElement(Driver.driver, AddNewBtnBy);
-        private IWebElement eAddNewSkillButton => WebHelper.FindElement(Driver.driver, AddNewSkillsBtnBy);
 
         public void ClickLanguageTab()
         {
@@ -99,6 +66,11 @@ namespace MarsQA_1.SpecflowPages.Pages
             WebHelper.WaitClickable(Driver.driver, AddLanguageBtnBy, 5);
             eAddLanguageBtn.Click();
         }
+        public void ClickCancelAdd()
+        {
+            WebHelper.WaitClickable(Driver.driver, CancelAddBtnBy, 5);
+            eCancelAddBtn.Click();
+        }
         public void ClickLanguageWrtIc()
         {
             WebHelper.WaitClickable(Driver.driver, LanguageWrtIcBy, 5);
@@ -114,10 +86,10 @@ namespace MarsQA_1.SpecflowPages.Pages
             WebHelper.WaitClickable(Driver.driver, LanguageUpdateBtnBy, 5);
             eLanguageUpdateBtn.Click();
         }
-        public void ClickCancel()
+        public void ClickCancelUpdate()
         {
-            WebHelper.WaitClickable(Driver.driver, LanguageCancelBtnBy, 5);
-            eLanguageCancelBtn.Click();
+            WebHelper.WaitClickable(Driver.driver, LanguageCancelUpdateBtnBy, 5);
+            eLanguageCancelUpdateBtn.Click();
         }
 
         public string getLanguageText()
@@ -152,6 +124,5 @@ namespace MarsQA_1.SpecflowPages.Pages
                 return false;
             }
         }
-
     }
 }
