@@ -76,10 +76,10 @@ namespace MarsQA_1.Feature.ProfileInfos
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify the user is able to edit the availability hours")]
         [NUnit.Framework.CategoryAttribute("profile_hours")]
-        [NUnit.Framework.TestCaseAttribute("Less than 30hours a week", null)]
-        [NUnit.Framework.TestCaseAttribute("More than 30hours a week", null)]
-        [NUnit.Framework.TestCaseAttribute("As needed", null)]
-        public virtual void VerifyTheUserIsAbleToEditTheAvailabilityHours(string hours, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("Less than 30hours a week", "Availability updated", null)]
+        [NUnit.Framework.TestCaseAttribute("More than 30hours a week", "Availability updated", null)]
+        [NUnit.Framework.TestCaseAttribute("As needed", "Availability updated", null)]
+        public virtual void VerifyTheUserIsAbleToEditTheAvailabilityHours(string hours, string notification, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "profile_hours"};
@@ -90,6 +90,7 @@ namespace MarsQA_1.Feature.ProfileInfos
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Hours", hours);
+            argumentsOfScenario.Add("Notification", notification);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to edit the availability hours", null, tagsOfScenario, argumentsOfScenario);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
@@ -120,6 +121,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 8
  testRunner.Then(string.Format("The Hours should be update as \"{0}\"", hours), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
+#line 9
+ testRunner.Then(string.Format("The alert dialog \"{0}\" should be displayed", notification), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
             }
             this.ScenarioCleanup();
         }
@@ -131,7 +135,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to cancel on hours", null, tagsOfScenario, argumentsOfScenario);
-#line 15
+#line 16
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -151,13 +155,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 16
+#line 17
  testRunner.Given("Click hours edit icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 17
+#line 18
  testRunner.When("Click hours cancel icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 18
+#line 19
  testRunner.Then("The hours should not change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

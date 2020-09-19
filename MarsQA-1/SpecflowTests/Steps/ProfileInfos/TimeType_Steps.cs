@@ -38,7 +38,6 @@ namespace MarsQA_1.SpecflowTests.Steps.ProfileInfos
         {
             Console.WriteLine("timeType = " + timeType);
             Assert.AreEqual(timeType, timetype.getTimeTypeText());
-            Assert.AreEqual("Availability updated", profileCommon.getAlertDialogText());
         }
 
         [When(@"Click time type cancel icon")]
@@ -46,6 +45,7 @@ namespace MarsQA_1.SpecflowTests.Steps.ProfileInfos
         {
             timetype.ClickTimeTypeRmIcon();
         }
+
         [Then(@"The timetype should not change")]
         public void ThenTheTimetypeShouldNotChange()
         {

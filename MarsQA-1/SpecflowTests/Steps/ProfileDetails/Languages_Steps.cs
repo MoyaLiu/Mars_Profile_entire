@@ -1,4 +1,5 @@
-﻿using MarsQA_1.SpecflowPages.Pages.ProfileDetails;
+﻿using MarsQA_1.SpecflowPages.Pages;
+using MarsQA_1.SpecflowPages.Pages.ProfileDetails;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 
@@ -8,10 +9,12 @@ namespace MarsQA_1.SpecflowTests.Steps
     public sealed class Languages_Steps
     {
         Languages languages = null;
+        ProfileCommon profileCommon = null;
 
         Languages_Steps()
         {
             languages = new Languages();
+            profileCommon = new ProfileCommon();
         }
 
         [Given(@"Click Languages Tab")]
@@ -74,18 +77,5 @@ namespace MarsQA_1.SpecflowTests.Steps
         {
             languages.ClickRemove();
         }
-
-        [Then(@"The alert dialog ""(.*)"" should be displayed")]
-        public void ThenTheAlertDialogShouldBeDisplayed(string notification)
-        {
-            StringAssert.Contains(notification, languages.getAlertDialogText());
-        }
-
-        [Then(@"The alert dialog should not be displayed")]
-        public void ThenTheAlertDialogShouldNotBeDisplayed()
-        {
-            Assert.IsFalse(languages.isVisibleAlertDialog());
-        }
-
     }
 }

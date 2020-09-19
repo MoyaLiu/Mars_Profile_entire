@@ -39,7 +39,6 @@ namespace MarsQA_1.SpecflowTests.Steps.ProfileInfos
         {
             Console.WriteLine("earntarget = " + earntarget);
             Assert.AreEqual(earntarget, target.getEarnTargetText());
-            //Assert.AreEqual(profileInfo.successfulText, profileCommon.getAlertDialogText());
         }
 
         [When(@"Click target cancel icon")]

@@ -39,16 +39,5 @@ namespace MarsQA_1.SpecflowPages.Pages
             WebHelper.WaitClickable(Driver.driver, SaveBy, 5);
             Save.Click();
         }
-
-        public string getAlertDialogText()
-        {
-            var alertDialogDisplay = By.XPath("//div[@class='ns-box-inner']");
-            WebHelper.WaitVisible(Driver.driver, alertDialogDisplay, 2);
-            var text = WebHelper.FindElement(Driver.driver, alertDialogDisplay).Text;
-            Console.WriteLine("text = " + text);
-            return text;
-        }
-
-
     }
 }

@@ -38,7 +38,6 @@ namespace MarsQA_1.SpecflowTests.Steps.ProfileInfos
         {
             Console.WriteLine("inHours = " + inHours);
             Assert.AreEqual(inHours, hours.getHoursText());
-            //Assert.AreEqual(profileInfo.successfulText, profileCommon.getAlertDialogText());
         }
 
         [When(@"Click hours cancel icon")]

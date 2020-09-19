@@ -79,7 +79,7 @@ namespace MarsQA_1.Feature
         [NUnit.Framework.TestCaseAttribute("I am a learner", "Description has been saved successfully", null)]
         [NUnit.Framework.TestCaseAttribute("", "Please, a description is required", null)]
         [NUnit.Framework.TestCaseAttribute("$#%$#^$", "First character can only be digit or letters", null)]
-        public virtual void VerifyTheUserIsAbleToSaveTheDescriptionWithValidValues(string description, string display, string[] exampleTags)
+        public virtual void VerifyTheUserIsAbleToSaveTheDescriptionWithValidValues(string description, string notification, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "profile_description"};
@@ -90,7 +90,7 @@ namespace MarsQA_1.Feature
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Description", description);
-            argumentsOfScenario.Add("Display", display);
+            argumentsOfScenario.Add("Notification", notification);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to save the description with valid values", null, tagsOfScenario, argumentsOfScenario);
 #line 37
 this.ScenarioInitialize(scenarioInfo);
@@ -122,7 +122,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("Click save button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 41
- testRunner.Then(string.Format("The dialog \"{0}\"should be displayed", display), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("The alert dialog \"{0}\" should be displayed", notification), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

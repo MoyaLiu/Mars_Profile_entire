@@ -76,9 +76,9 @@ namespace MarsQA_1.Feature.ProfileInfos
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify the user is able to edit the availability time type")]
         [NUnit.Framework.CategoryAttribute("profile_timetype")]
-        [NUnit.Framework.TestCaseAttribute("Part Time", null)]
-        [NUnit.Framework.TestCaseAttribute("Full Time", null)]
-        public virtual void VerifyTheUserIsAbleToEditTheAvailabilityTimeType(string timeType, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("Part Time", "Availability updated", null)]
+        [NUnit.Framework.TestCaseAttribute("Full Time", "Availability updated", null)]
+        public virtual void VerifyTheUserIsAbleToEditTheAvailabilityTimeType(string timeType, string notification, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "profile_timetype"};
@@ -89,6 +89,7 @@ namespace MarsQA_1.Feature.ProfileInfos
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Time Type", timeType);
+            argumentsOfScenario.Add("Notification", notification);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to edit the availability time type", null, tagsOfScenario, argumentsOfScenario);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
@@ -119,6 +120,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 8
  testRunner.Then(string.Format("The availability should be update as \"{0}\"", timeType), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
+#line 9
+ testRunner.Then(string.Format("The alert dialog \"{0}\" should be displayed", notification), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
             }
             this.ScenarioCleanup();
         }
@@ -130,7 +134,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to cancel on time type", null, tagsOfScenario, argumentsOfScenario);
-#line 14
+#line 15
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -150,13 +154,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 15
+#line 16
  testRunner.Given("Click availability edit icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 16
+#line 17
  testRunner.When("Click time type cancel icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 17
+#line 18
  testRunner.Then("The timetype should not change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

@@ -11,13 +11,24 @@ namespace MarsQA_1.SpecflowPages.Pages
 {
     class ProfileCommon
     {
+        private By AlertDialogBy = By.XPath("//div[@class='ns-box-inner']");
         public string getAlertDialogText()
         {
-            var alertDialogDisplay = By.XPath("//div[@class='ns-box-inner']");
-            WebHelper.WaitVisible(Driver.driver, alertDialogDisplay, 2);
-            var text = WebHelper.FindElement(Driver.driver, alertDialogDisplay).Text;
+            WebHelper.WaitVisible(Driver.driver, AlertDialogBy, 2);
+            var text = WebHelper.FindElement(Driver.driver, AlertDialogBy).Text;
             Console.WriteLine("text = " + text);
             return text;
+        }
+        public bool isVisibleAlertDialog()
+        {
+            if (WebHelper.WaitVisible(Driver.driver, AlertDialogBy, 2))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

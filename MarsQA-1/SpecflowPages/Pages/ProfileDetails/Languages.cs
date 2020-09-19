@@ -104,25 +104,5 @@ namespace MarsQA_1.SpecflowPages.Pages.ProfileDetails
             WebHelper.WaitVisible(Driver.driver, by, 5);
             return WebHelper.FindElement(Driver.driver, by).Text;
         }
-        public string getAlertDialogText()
-        {
-            var alertDialogDisplay = By.XPath("//div[@class='ns-box-inner']");
-            WebHelper.WaitVisible(Driver.driver, alertDialogDisplay, 2);
-            var text = WebHelper.FindElement(Driver.driver, alertDialogDisplay).Text;
-            Console.WriteLine("text = " + text);
-            return text;
-        }
-        public bool isVisibleAlertDialog()
-        {
-            var alertDialogDisplay = By.XPath("//div[@class='ns-box-inner']");
-            if (WebHelper.WaitVisible(Driver.driver, alertDialogDisplay, 2))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
     }
 }

@@ -76,10 +76,10 @@ namespace MarsQA_1.Feature.ProfileInfos
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify the user is able to edit the availability earn target")]
         [NUnit.Framework.CategoryAttribute("profile_target")]
-        [NUnit.Framework.TestCaseAttribute("Less than $500 per month", null)]
-        [NUnit.Framework.TestCaseAttribute("Between $500 and $1000 per month", null)]
-        [NUnit.Framework.TestCaseAttribute("More than $1000 per month", null)]
-        public virtual void VerifyTheUserIsAbleToEditTheAvailabilityEarnTarget(string earnTarget, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("Less than $500 per month", "Availability updated", null)]
+        [NUnit.Framework.TestCaseAttribute("Between $500 and $1000 per month", "Availability updated", null)]
+        [NUnit.Framework.TestCaseAttribute("More than $1000 per month", "Availability updated", null)]
+        public virtual void VerifyTheUserIsAbleToEditTheAvailabilityEarnTarget(string earnTarget, string notification, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "profile_target"};
@@ -90,6 +90,7 @@ namespace MarsQA_1.Feature.ProfileInfos
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Earn Target", earnTarget);
+            argumentsOfScenario.Add("Notification", notification);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to edit the availability earn target", null, tagsOfScenario, argumentsOfScenario);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
@@ -120,6 +121,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 8
  testRunner.Then(string.Format("The Earn Target should be update as \"{0}\"", earnTarget), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
+#line 9
+ testRunner.Then(string.Format("The alert dialog \"{0}\" should be displayed", notification), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
             }
             this.ScenarioCleanup();
         }
@@ -131,7 +135,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the user is able to cancel on earn target", null, tagsOfScenario, argumentsOfScenario);
-#line 15
+#line 16
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -151,13 +155,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 16
+#line 17
  testRunner.Given("Click target edit icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 17
+#line 18
  testRunner.When("Click target cancel icon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 18
+#line 19
  testRunner.Then("The target should not change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

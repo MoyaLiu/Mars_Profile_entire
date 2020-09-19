@@ -59,10 +59,6 @@ namespace MarsQA_1.SpecflowTests.Steps
         //{
         //    Assert.AreEqual(profileDescription.invalidText, profileDescription.getAlertDialogText());
         //}
-        [Then(@"The dialog ""(.*)""should be displayed")]
-        public void ThenTheDialogShouldBeDisplayed(string display)
-        {
-            Assert.AreEqual(display, profileDescription.getAlertDialogText());
-        }
+
     }
 }

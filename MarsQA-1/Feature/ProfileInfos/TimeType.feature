@@ -6,10 +6,11 @@ Scenario Outline: Verify the user is able to edit the availability time type
 	Given Click availability edit icon
 	When Choose the availability "<Time Type>"
 	Then The availability should be update as "<Time Type>"
+	Then The alert dialog "<Notification>" should be displayed
 Examples:
-	| Time Type |
-	| Part Time |
-	| Full Time |
+	| Time Type | Notification         |
+	| Part Time | Availability updated |
+	| Full Time | Availability updated |
 
 Scenario: Verify the user is able to cancel on time type
 	Given Click availability edit icon

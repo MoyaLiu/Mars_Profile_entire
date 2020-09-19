@@ -8,6 +8,6 @@ Scenario Outline: Verify the user is able to edit the name
 	When Click Save
 	Then The name is display as "<First Name>""<Last Name>"
 
-Examples:
+	Examples:
 	| First Name | Last Name |
 	| Moyaa      | Lii       |

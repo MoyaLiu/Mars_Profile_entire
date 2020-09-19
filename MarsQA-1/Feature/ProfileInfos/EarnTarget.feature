@@ -6,11 +6,12 @@ Scenario Outline: Verify the user is able to edit the availability earn target
 	Given Click target edit icon
 	When Choose the target "<Earn Target>"
 	Then The Earn Target should be update as "<Earn Target>"
+	Then The alert dialog "<Notification>" should be displayed
 Examples:
-	| Earn Target                      |
-	| Less than $500 per month         |
-	| Between $500 and $1000 per month |
-	| More than $1000 per month        |
+	| Earn Target                      | Notification         |
+	| Less than $500 per month         | Availability updated |
+	| Between $500 and $1000 per month | Availability updated |
+	| More than $1000 per month        | Availability updated |
 
 Scenario: Verify the user is able to cancel on earn target
 	Given Click target edit icon
